@@ -66,6 +66,6 @@ class AboutFragment: Fragment() {
     }
 
     private fun pickImage() {
-        pickImageLauncher.launch("image/*") // MIME type for images
+        pickImageLauncher.launch("image/*")
     }
 }
