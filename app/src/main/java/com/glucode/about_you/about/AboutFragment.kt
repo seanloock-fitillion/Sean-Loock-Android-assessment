@@ -11,15 +11,19 @@ import androidx.fragment.app.Fragment
 import com.glucode.about_you.R
 import com.glucode.about_you.about.views.QuestionCardView
 import com.glucode.about_you.databinding.FragmentAboutBinding
+import com.glucode.about_you.engineers.models.Engineer
 import com.glucode.about_you.mockdata.MockData
 
 class AboutFragment: Fragment() {
     private lateinit var binding: FragmentAboutBinding
     private lateinit var imageView: ImageView
+    private lateinit var engineer: Engineer
+
     private val pickImageLauncher =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             uri?.let {
-                imageView.setImageURI(it)
+                engineer.profileImageUri.value = it
+                imageView.setImageURI(engineer.profileImageUri.value)
             }
         }
 
@@ -46,7 +50,7 @@ class AboutFragment: Fragment() {
 
     private fun setUpQuestions() {
         val engineerName = arguments?.getString("name")
-        val engineer = MockData.engineers.first { it.name == engineerName }
+        engineer = MockData.engineers.first { it.name == engineerName }
 
         binding.engineerProfileCard.engineerName.text = engineer.name
         binding.engineerProfileCard.engineerRole.text = engineer.role

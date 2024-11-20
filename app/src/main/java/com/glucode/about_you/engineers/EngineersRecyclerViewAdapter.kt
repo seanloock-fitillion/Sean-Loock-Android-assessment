@@ -26,10 +26,10 @@ class EngineersRecyclerViewAdapter(
         fun bind(engineer: Engineer, onClick: (Engineer) -> Unit) {
             binding.name.text = engineer.name
             binding.role.text = engineer.role
+            binding.profileImage.setImageURI(engineer.profileImageUri.value)
             binding.root.setOnClickListener {
                 onClick(engineer)
             }
-            //TODO - set profile picture
 //            statusIcon.setDrawable(item.icon)
         }
     }
