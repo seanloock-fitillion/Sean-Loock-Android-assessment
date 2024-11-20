@@ -31,6 +31,9 @@ class AboutFragment: Fragment() {
         val engineerName = arguments?.getString("name")
         val engineer = MockData.engineers.first { it.name == engineerName }
 
+        binding.engineerProfileCard.engineerName.text = engineer.name
+        binding.engineerProfileCard.engineerRole.text = engineer.role
+
         engineer.questions.forEach { question ->
             val questionView = QuestionCardView(requireContext())
             questionView.title = question.questionText
