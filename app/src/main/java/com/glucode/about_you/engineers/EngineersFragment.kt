@@ -31,11 +31,11 @@ class EngineersFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_years) {
-            setUpEngineersList(MockData.engineers.sortedBy { it.quickStats.years }.reversed())
+            setUpEngineersList(MockData.engineers.sortedBy { it.quickStats.years })
         } else if (item.itemId == R.id.action_coffees) {
-            setUpEngineersList(MockData.engineers.sortedBy { it.quickStats.coffees }.reversed())
+            setUpEngineersList(MockData.engineers.sortedBy { it.quickStats.coffees })
         } else if (item.itemId == R.id.action_bugs) {
-            setUpEngineersList(MockData.engineers.sortedBy { it.quickStats.bugs }.reversed())
+            setUpEngineersList(MockData.engineers.sortedBy { it.quickStats.bugs })
         }
         return super.onOptionsItemSelected(item)
     }
