@@ -45,39 +45,39 @@ class EngineersFragmentTest {
         )
 
         expectedEngineersByYears = listOf(
-            engineer2,
-            engineer3,
-            engineer1
-        )
-
-        expectedEngineersByCoffees = listOf(
-            engineer3,
             engineer1,
+            engineer3,
             engineer2
         )
 
-        expectedEngineersByBugs = listOf(
-            engineer1,
+        expectedEngineersByCoffees = listOf(
             engineer2,
+            engineer1,
             engineer3
+        )
+
+        expectedEngineersByBugs = listOf(
+            engineer3,
+            engineer2,
+            engineer1
         )
     }
 
     @Test
     fun sortEngineersByQuickStatYears() {
-        val sortedEngineers = engineers.sortedBy { it.quickStats.years }.reversed()
+        val sortedEngineers = engineers.sortedBy { it.quickStats.years }
         assertEquals(expectedEngineersByYears, sortedEngineers)
     }
 
     @Test
     fun sortEngineersByQuickStatCoffees() {
-        val sortedEngineers = engineers.sortedBy { it.quickStats.coffees }.reversed()
+        val sortedEngineers = engineers.sortedBy { it.quickStats.coffees }
         assertEquals(expectedEngineersByCoffees, sortedEngineers)
     }
 
     @Test
     fun sortEngineersByQuickStatBugs() {
-        val sortedEngineers = engineers.sortedBy { it.quickStats.bugs }.reversed()
+        val sortedEngineers = engineers.sortedBy { it.quickStats.bugs }
         assertEquals(expectedEngineersByBugs, sortedEngineers)
     }
 }
